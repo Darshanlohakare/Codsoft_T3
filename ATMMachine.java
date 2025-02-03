@@ -1,15 +1,14 @@
 import java.util.Scanner;
 
-// BankAccount class to store and manage account balance
 class BankAccount {
     private double balance;
 
-    // Constructor to initialize balance
+    
     public BankAccount(double initialBalance) {
         this.balance = initialBalance;
     }
 
-    // Method to deposit money
+    
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -19,7 +18,7 @@ class BankAccount {
         }
     }
 
-    // Method to withdraw money
+    
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -31,24 +30,23 @@ class BankAccount {
         }
     }
 
-    // Method to check balance
+
     public double getBalance() {
         return balance;
     }
 }
 
-// ATM class to provide user interface
 class ATM {
     private BankAccount account;
     private Scanner scanner;
 
-    // Constructor
+    
     public ATM(BankAccount account) {
         this.account = account;
         this.scanner = new Scanner(System.in);
     }
 
-    // Display menu and process user choice
+
     public void start() {
         while (true) {
             System.out.println("\n===== ATM Menu =====");
@@ -84,13 +82,10 @@ class ATM {
     }
 }
 
-// Main class to run the ATM application
+
 public class ATMMachine {
     public static void main(String[] args) {
-        // Create a bank account with an initial balance
-        BankAccount userAccount = new BankAccount(1000.00); // Initial balance of $1000
-
-        // Create and start the ATM
+        BankAccount userAccount = new BankAccount(1000.00); 
         ATM atm = new ATM(userAccount);
         atm.start();
     }
